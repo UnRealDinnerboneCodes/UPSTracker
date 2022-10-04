@@ -3,15 +3,18 @@ package main
 import (
 	"encoding/json"
 	"github.com/mdlayher/apcupsd"
+	"log"
 	"net/http"
 )
 
 func main() {
+	log.Println("Hello There")
 	http.HandleFunc("/info", hello)
 	http.ListenAndServe(":8090", nil)
 }
 
 func hello(w http.ResponseWriter, req *http.Request) {
+	log.Println("Got Request")
 	c, err := apcupsd.Dial("tcp", "10.0.0.251:3551")
 	if err != nil {
 		writeData(Data{"Unknown", 0.0, 0.0, 0.0}, w)
@@ -27,6 +30,8 @@ func hello(w http.ResponseWriter, req *http.Request) {
 }
 
 func writeData(d Data, w http.ResponseWriter) {
+	log.Print("Request: ")
+	log.Println(d)
 	out, err := json.Marshal(d)
 	if err != nil {
 		panic(err)
