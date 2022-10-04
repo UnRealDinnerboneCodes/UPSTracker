@@ -2,15 +2,31 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/mdlayher/apcupsd"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
 
 func main() {
 	log.Println("Hello There")
+	resp, err := http.Get("http://10.0.0.251:9595")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(string(body))
 	http.HandleFunc("/info", hello)
 	http.ListenAndServe(":8090", nil)
+
 }
 
 func hello(w http.ResponseWriter, req *http.Request) {
