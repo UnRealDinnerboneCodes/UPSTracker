@@ -1,0 +1,3 @@
+github.com/google/go-cmp v0.5.7 h1:81/ik6ipDQS2aGcBfIN5dHDB36BwrStyeAQquSYCV4o=
+github.com/mdlayher/apcupsd v0.0.0-20220319200143-473c7b5f3c6a h1:JOlLsLUQnokTyWWwEvOVoKH3XUl6oDMP8jisO54l6J8=
+github.com/mdlayher/apcupsd v0.0.0-20220319200143-473c7b5f3c6a/go.mod h1:960H6oqSawdujauTeLX9BOx+ZdYX0TdG9xE9br5bino=
