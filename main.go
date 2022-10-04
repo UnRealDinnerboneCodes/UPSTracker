@@ -48,11 +48,15 @@ func hello(w http.ResponseWriter, req *http.Request) {
 func writeData(d Data, w http.ResponseWriter) {
 	log.Print("Request: ")
 	log.Println(d)
-	out, err := json.Marshal(d)
+	out, err := json.Marshal(Return{d})
 	if err != nil {
 		panic(err)
 	}
 	w.Write(out)
+}
+
+type Return struct {
+	Data Data `json:"data"`
 }
 
 type Data struct {
