@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	log.Println("Hello There")
+	log.Println("Hello There Again")
 	resp, err := http.Get("http://10.0.0.251:9595")
 	if err != nil {
 		log.Fatal(err)
