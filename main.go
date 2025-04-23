@@ -33,7 +33,7 @@ func unreal(w http.ResponseWriter, req *http.Request) {
 
 func beef(w http.ResponseWriter, req *http.Request) {
 	log.Println("Got Request")
-	c, err := apcupsd.Dial("tcp", "10.0.0.224:3551")
+	c, err := apcupsd.Dial("tcp", "192.168.1.135:3551")
 	if err != nil {
 		writeData(Data{"Unknown", 0.0, 0.0, 0.0}, w)
 		return
